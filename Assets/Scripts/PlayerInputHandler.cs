@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class PlayerInputHandler : MonoBehaviour
 {
+    [Header("Player Sprites")]
     [SerializeField] Spaceship playerShip;
+
+    [Header("Points")]
+    [SerializeField] int currentPoints = 0;
 
     void FixedUpdate(){
         // Initialize Vector3:
@@ -29,5 +33,15 @@ public class PlayerInputHandler : MonoBehaviour
     public Spaceship GetPlayerShip()
     {
         return playerShip;
+    }
+
+    public int GetCurrentPoints()
+    {
+        return currentPoints;
+    }
+
+    public void IncrementPoint()
+    {
+        currentPoints = currentPoints + 1;
     }
 }
