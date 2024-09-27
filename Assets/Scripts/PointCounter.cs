@@ -5,13 +5,21 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+/**
+* class: PointCounter()
+* description: class for updating the point counter text
+*/
 public class PointCounter : MonoBehaviour
 {
     [SerializeField] PlayerInputHandler playerInputHandler; // always connected to what player is controlling
 
     [SerializeField] TextMeshProUGUI pointText;
 
-    // Update is called once per frame
+    /**
+    * function: Update()
+    * args: none
+    * description: Update the point counter text with current points
+    */
     void Update()
     {
         int currentPoints = playerInputHandler.GetCurrentPoints();

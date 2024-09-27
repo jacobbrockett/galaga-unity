@@ -3,6 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 
+/**
+* class: PlayerInputHandler
+* description: Class is responsible for handling player inputs, tracking points, and passing the coin
+* audio source to Point objects
+*/
 public class PlayerInputHandler : MonoBehaviour
 {
     [Header("Sprites")]
@@ -14,7 +19,11 @@ public class PlayerInputHandler : MonoBehaviour
     [Header("Audio")]
     [SerializeField] AudioSource coinAudioSource; // or GetComponent<AudioSource>()
 
-
+    /**
+    * function: FixedUpdate()
+    * args: None
+    * description: Grabs player input and moves the spaceship accordingly
+    */
     void FixedUpdate(){
         // Initialize Vector3:
         Vector3 movement = Vector3.zero;
@@ -35,19 +44,36 @@ public class PlayerInputHandler : MonoBehaviour
         playerShip.Move(movement);
     }
 
-    public Spaceship GetPlayerShip()
-    {
-        return playerShip;
-    }
-
-    public int GetCurrentPoints()
-    {
-        return currentPoints;
-    }
-
+    /**
+    * function: IncrementPoint()
+    * args: None
+    * description: Increments the current points field by one and plays the coin audio source
+    */
     public void IncrementPoint()
     {
         currentPoints = currentPoints + 1;
         coinAudioSource.Play();
     }
+
+    /**
+    * function: GetPlayerShip()
+    * args: None
+    * description: Getter for player ship field
+    */
+    public Spaceship GetPlayerShip()
+    {
+        return playerShip;
+    }
+
+    /**
+    * function: GetCurrentPoints()
+    * args: None
+    * description: Getter for current points field
+    */
+    public int GetCurrentPoints()
+    {
+        return currentPoints;
+    }
+
+    
 }
