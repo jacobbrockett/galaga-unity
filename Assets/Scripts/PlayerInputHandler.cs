@@ -1,14 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class PlayerInputHandler : MonoBehaviour
 {
-    [Header("Player Sprites")]
+    [Header("Sprites")]
     [SerializeField] Spaceship playerShip;
 
     [Header("Points")]
     [SerializeField] int currentPoints = 0;
+
+    [Header("Audio")]
+    [SerializeField] AudioSource coinAudioSource; // or GetComponent<AudioSource>()
+
 
     void FixedUpdate(){
         // Initialize Vector3:
@@ -43,5 +48,6 @@ public class PlayerInputHandler : MonoBehaviour
     public void IncrementPoint()
     {
         currentPoints = currentPoints + 1;
+        coinAudioSource.Play();
     }
 }
